@@ -1,7 +1,7 @@
 package com.noackexpected.kata.scala.bankocr.v1
 
 class Parser {
-  def parse(text: Seq[Seq[Char]]): Seq[Int] = {
+  def parse(text: Seq[Seq[Char]]): Seq[Option[Int]] = {
     val possibilities = mapTextToPossibleDigits(text)
     val calculatedValues = reducePossibilities(possibilities)
     calculatedValues.keys.toList.sorted.map {
@@ -10,7 +10,7 @@ class Parser {
     }
   }
 
-  private def reducePossibilities(possibilities: Seq[((Int, Int, Int, Int), Int)]): Map[(Int, Int), Int] = {
+  private def reducePossibilities(possibilities: Seq[((Int, Int, Int, Int), Int)]): Map[(Int, Int), Option[Int]] = {
     groupByDigitColumnAndDigitRow(possibilities).map {
       keyAndValue =>
         val key = keyAndValue._1
@@ -26,8 +26,13 @@ class Parser {
     }
   }
 
-  private def reduceToSingleDigitPerDigitColumnAndDigitRow(digitColumnAndRow: (Int, Int), possibilities: Seq[((Int, Int, Int, Int), Int)]): ((Int, Int), Int) = {
-    val remainingPossibles = possibilities.groupBy {
+  private def reduceToSingleDigitPerDigitColumnAndDigitRow(digitColumnAndRow: (Int, Int), possibilities: Seq[((Int, Int, Int, Int), Int)]): ((Int, Int), Option[Int]) = {
+    val remainingPossibilities = determineRemainingPossibilities(possibilities)
+    (digitColumnAndRow, selectMostLikelyPossibility(remainingPossibilities))
+  }
+
+  private def determineRemainingPossibilities(possibilities: Seq[((Int, Int, Int, Int), Int)]): Seq[Int] = {
+    possibilities.groupBy {
       element =>
         element._2
     }.filter {
@@ -36,8 +41,11 @@ class Parser {
     }.map {
       element =>
         element._1
-    }
-    (digitColumnAndRow, remainingPossibles.head)
+    }.toSeq
+  }
+
+  private def selectMostLikelyPossibility(possibilities: Seq[Int]): Option[Int] = {
+    possibilities.headOption
   }
 
   private def mapTextToPossibleDigits(text: Seq[Seq[Char]]): Seq[((Int, Int, Int, Int), Int)] = {

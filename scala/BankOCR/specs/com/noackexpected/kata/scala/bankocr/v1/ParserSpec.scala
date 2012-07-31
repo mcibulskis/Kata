@@ -9,7 +9,7 @@ class ParserSpec extends FlatSpec with ShouldMatchers {
 
     val digits = (new Parser).parse(text)
 
-    digits should equal(List(0))
+    digits should equal(List(Some(0)))
   }
 
   it should "convert a sequence of sequence of characters describing multiple digits into a sequence of digits" in {
@@ -17,6 +17,14 @@ class ParserSpec extends FlatSpec with ShouldMatchers {
 
     val digits = (new Parser).parse(text)
 
-    digits should equal(List(1, 2, 3, 4, 5, 6, 7, 8, 9))
+    digits should equal(List(Some(1), Some(2), Some(3), Some(4), Some(5), Some(6), Some(7), Some(8), Some(9)))
+  }
+
+  it should "convert a completely unrecognizable sequence of characters into a 'None' option" in {
+    val text = List(List(' ', ' ', ' '), List(' ', ' ', ' '), List(' ', ' ', ' '), List(' ', ' ', ' '))
+
+    val digits = (new Parser).parse(text)
+
+    digits should equal(List(None))
   }
 }
