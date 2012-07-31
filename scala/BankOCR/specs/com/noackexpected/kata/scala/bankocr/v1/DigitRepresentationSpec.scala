@@ -5,6 +5,23 @@ import org.scalatest.matchers.ShouldMatchers
 
 class DigitRepresentationSpec extends FlatSpec with ShouldMatchers {
 
+  it should "generate a sequence containing all the coordinates on the grid for the characters for the digit" in {
+    val builtGrid = new DigitRepresentation().generatePositionGridAsSequence()
+
+    builtGrid should equal(Seq((0,0), (1,0), (2,0), (0,1), (1,1), (2,1), (0,2), (1,2), (2,2), (0,3), (1,3), (2,3)))
+  }
+
+  it should "generate a grid containing all the coordinates on the grid for the characters for the digit" in {
+    val builtGrid = new DigitRepresentation().generatePositionGrid()
+
+    builtGrid should equal(Seq(
+      Seq((0,0), (1,0), (2,0)),
+      Seq((0,1), (1,1), (2,1)),
+      Seq((0,2), (1,2), (2,2)),
+      Seq((0,3), (1,3), (2,3))
+    ))
+  }
+
   //
   // ===========================================================================
   // Tests for calculating the character at a position for a digit

@@ -71,6 +71,52 @@ class DigitSequenceGeneratorSpec extends FlatSpec with ShouldMatchers {
     text should equal(appendedDigits(List(drs.digit0, drs.digit1, drs.digit2, drs.digit3, drs.digit4, drs.digit5, drs.digit6, drs.digit7, drs.digit8, drs.digit9)))
   }
 
+  //
+  // ========================
+  // noisy digits
+  //
+
+  it should "generate a noisy version of the target digit with 2 wrong characters when the noise rate is 0.17" in {
+    val text = new DigitSequenceGenerator().generateNoisyDigits(List(0), 0.17)
+    val numberOfDifferences = detectDifferences(text, new DigitRepresentationSpec().digit0)
+    println("noisy:    " + text)
+    println("expected: " + new DigitRepresentationSpec().digit0)
+    println("differences: " + numberOfDifferences)
+
+    numberOfDifferences should equal(2)
+  }
+
+  it should "generate a noisy version of the target digit with 4 wrong characters when the noise rate is 0.34" in {
+    val text = new DigitSequenceGenerator().generateNoisyDigits(List(2), 0.34)
+    val numberOfDifferences = detectDifferences(text, new DigitRepresentationSpec().digit2)
+    println("noisy:    " + text)
+    println("expected: " + new DigitRepresentationSpec().digit2)
+    println("differences: " + numberOfDifferences)
+
+    numberOfDifferences should equal(4)
+  }
+
+  it should "generate a noisy version of the sequence of digits with 3 wrong characters per digit when the noise rate is 0.25" in {
+    val text = new DigitSequenceGenerator().generateNoisyDigits(List(1, 2, 3, 4, 5, 6, 7, 8, 9), 0.25)
+    val drs = new DigitRepresentationSpec
+    val expectedText = appendedDigits(List(drs.digit1, drs.digit2, drs.digit3, drs.digit4, drs.digit5, drs.digit6, drs.digit7, drs.digit8, drs.digit9))
+    val numberOfDifferences = detectDifferences(text, expectedText)
+    println("noisy:    " + text)
+    println("expected: " + expectedText)
+    println("differences: " + numberOfDifferences)
+
+    numberOfDifferences should equal(3 * 9)
+  }
+
+  //
+  // =========================
+  // helper methods
+  //
+
+  private def detectDifferences(actual: Seq[Seq[Char]], expected: Seq[Seq[Char]]): Int = {
+    actual.flatten.zip(expected.flatten).aggregate(0)((sum, element) => sum + (if (element._1 == element._2) 0 else 1), _ + _)
+  }
+
   private def appendedDigits(digits: Seq[Seq[Seq[Char]]]): Seq[Seq[Char]] = {
     digits.reduceLeft(appendDigits)
   }

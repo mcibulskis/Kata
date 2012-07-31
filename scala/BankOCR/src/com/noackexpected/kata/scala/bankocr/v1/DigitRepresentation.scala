@@ -21,6 +21,20 @@ class DigitRepresentation {
   )
   private val charToDescriptorMap = invertMap(descriptorToCharMap)
 
+  def generatePositionGridAsSequence(): Seq[(Int, Int)] = {
+    generatePositionGrid().flatten
+  }
+
+  def generatePositionGrid(): Seq[Seq[(Int, Int)]] = {
+    (0 until 4).map {
+      rowIndex =>
+        (0 until 3).map {
+          columnIndex =>
+            (columnIndex, rowIndex)
+        }
+    }
+  }
+
   def calculateCharacterAtPositionForDigit(digit: Int, positionXIndex: Int, positionYIndex: Int): Char = {
     val descriptor = generateDescriptorAtPositionForDigit(digit, positionXIndex, positionYIndex)
     descriptorToCharMap.get(descriptor).get
@@ -28,7 +42,7 @@ class DigitRepresentation {
 
   def calculatePossibleDigits(character: Char, positionXIndex: Int, positionYIndex: Int): Seq[Int] = {
     val targetDescriptor = charToDescriptorMap.get(character).get
-    (0 until 10).map {
+    (0 until 10).flatMap {
       digit =>
         val calculatedDescriptor = generateDescriptorAtPositionForDigit(digit, positionXIndex, positionYIndex)
         if (calculatedDescriptor == targetDescriptor) {
@@ -36,7 +50,7 @@ class DigitRepresentation {
         } else {
           Seq()
         }
-    }.flatten
+    }
   }
 
   def generateDescriptorAtPositionForDigit(digit: Int, positionXIndex: Int, positionYIndex: Int): Long = {
