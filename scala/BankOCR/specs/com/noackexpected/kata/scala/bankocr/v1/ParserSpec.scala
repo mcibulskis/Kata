@@ -21,10 +21,18 @@ class ParserSpec extends FlatSpec with ShouldMatchers {
   }
 
   it should "convert a completely unrecognizable sequence of characters into a 'None' option" in {
-    val text = List(List(' ', ' ', ' '), List(' ', ' ', ' '), List(' ', ' ', ' '), List(' ', ' ', ' '))
+    val text = List(List('_', '|', '_'), List('_', '|', '_'), List('_', '|', '_'), List('_', '|', '_'))
 
     val digits = (new Parser).parse(text)
 
     digits should equal(List(None))
+  }
+
+  it should "allow for fuzzy matching of digits when the character representation is slightly noisy" in {
+    val text = new DigitSequenceGenerator().generateNoisyDigits(List(1), 0.17)  // should have 2/12 different characters
+
+    val digits = new Parser().parse(text)
+
+    digits should equal(List(Some(1)))
   }
 }

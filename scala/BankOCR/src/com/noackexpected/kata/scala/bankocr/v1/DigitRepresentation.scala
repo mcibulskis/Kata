@@ -40,17 +40,17 @@ class DigitRepresentation {
     descriptorToCharMap.get(descriptor).get
   }
 
-  def calculatePossibleDigits(character: Char, positionXIndex: Int, positionYIndex: Int): Seq[Int] = {
+  def calculatePossibleDigits(character: Char, positionXIndex: Int, positionYIndex: Int): Seq[Option[Int]] = {
     val targetDescriptor = charToDescriptorMap.get(character).get
     (0 until 10).flatMap {
       digit =>
         val calculatedDescriptor = generateDescriptorAtPositionForDigit(digit, positionXIndex, positionYIndex)
         if (calculatedDescriptor == targetDescriptor) {
-          Seq(digit)
+          Seq(Some(digit))
         } else {
-          Seq()
+          Seq(None)
         }
-    }
+    }.toSet.toSeq.sorted
   }
 
   def generateDescriptorAtPositionForDigit(digit: Int, positionXIndex: Int, positionYIndex: Int): Long = {

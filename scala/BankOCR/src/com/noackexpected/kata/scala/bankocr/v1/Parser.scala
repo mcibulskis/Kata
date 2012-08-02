@@ -10,7 +10,7 @@ class Parser {
     }
   }
 
-  private def reducePossibilities(possibilities: Seq[((Int, Int, Int, Int), Int)]): Map[(Int, Int), Option[Int]] = {
+  private def reducePossibilities(possibilities: Seq[((Int, Int, Int, Int), Option[Int])]): Map[(Int, Int), Option[Int]] = {
     groupByDigitColumnAndDigitRow(possibilities).map {
       keyAndValue =>
         val key = keyAndValue._1
@@ -19,50 +19,50 @@ class Parser {
     }
   }
 
-  private def groupByDigitColumnAndDigitRow(possibilities: Seq[((Int, Int, Int, Int), Int)]): Map[(Int, Int), Seq[((Int, Int, Int, Int), Int)]] = {
+  private def groupByDigitColumnAndDigitRow(possibilities: Seq[((Int, Int, Int, Int), Option[Int])]): Map[(Int, Int), Seq[((Int, Int, Int, Int), Option[Int])]] = {
     possibilities.groupBy {
       element =>
         (element._1._1, element._1._2)
     }
   }
 
-  private def reduceToSingleDigitPerDigitColumnAndDigitRow(digitColumnAndRow: (Int, Int), possibilities: Seq[((Int, Int, Int, Int), Int)]): ((Int, Int), Option[Int]) = {
+  private def reduceToSingleDigitPerDigitColumnAndDigitRow(digitColumnAndRow: (Int, Int), possibilities: Seq[((Int, Int, Int, Int), Option[Int])]): ((Int, Int), Option[Int]) = {
     val remainingPossibilities = determineRemainingPossibilities(possibilities)
     (digitColumnAndRow, selectMostLikelyPossibility(remainingPossibilities))
   }
 
-  private def determineRemainingPossibilities(possibilities: Seq[((Int, Int, Int, Int), Int)]): Seq[Int] = {
+  private def determineRemainingPossibilities(possibilities: Seq[((Int, Int, Int, Int), Option[Int])]): Seq[(Option[Int], Double)] = {
     possibilities.groupBy {
       element =>
         element._2
-    }.filter {
-      keyAndValue =>
-        keyAndValue._2.size == 12
     }.map {
-      element =>
-        element._1
-    }.toSeq
+      digitAndOccurrences =>
+        (digitAndOccurrences._1, digitAndOccurrences._2.size / 12.0)
+    }.toSeq.sortWith {
+      (digitAndLikelihood1, digitAndLikelihood2) =>
+        digitAndLikelihood1._2 > digitAndLikelihood2._2
+    }
   }
 
-  private def selectMostLikelyPossibility(possibilities: Seq[Int]): Option[Int] = {
-    possibilities.headOption
+  private def selectMostLikelyPossibility(possibilities: Seq[(Option[Int], Double)]): Option[Int] = {
+    possibilities.head._1
   }
 
-  private def mapTextToPossibleDigits(text: Seq[Seq[Char]]): Seq[((Int, Int, Int, Int), Int)] = {
+  private def mapTextToPossibleDigits(text: Seq[Seq[Char]]): Seq[((Int, Int, Int, Int), Option[Int])] = {
     text.view.zipWithIndex.flatMap {
       lineWithIndex =>
         mapCharactersToPossibleDigits(lineWithIndex._1, lineWithIndex._2)
     }.force
   }
 
-  private def mapCharactersToPossibleDigits(line: Seq[Char], lineIndex: Int): Seq[((Int, Int, Int, Int), Int)] = {
+  private def mapCharactersToPossibleDigits(line: Seq[Char], lineIndex: Int): Seq[((Int, Int, Int, Int), Option[Int])] = {
     line.view.zipWithIndex.flatMap {
       charWithIndex =>
         generatePossibleDigitsForCharacterAtIndex(charWithIndex._1, charWithIndex._2, lineIndex)
     }.force
   }
 
-  private def generatePossibleDigitsForCharacterAtIndex(currentCharacter: Char, characterIndex: Int, lineIndex: Int): Seq[((Int, Int, Int, Int), Int)] = {
+  private def generatePossibleDigitsForCharacterAtIndex(currentCharacter: Char, characterIndex: Int, lineIndex: Int): Seq[((Int, Int, Int, Int), Option[Int])] = {
     val digitRowIndex: Int = characterIndex / 3
     val positionXIndex: Int = characterIndex % 3
     val digitColumnIndex: Int = lineIndex / 4

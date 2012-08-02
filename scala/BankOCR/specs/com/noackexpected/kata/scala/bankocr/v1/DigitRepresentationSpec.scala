@@ -178,216 +178,216 @@ class DigitRepresentationSpec extends FlatSpec with ShouldMatchers {
   it should "calculate the correct possible digits at 0,0 when the character is ' '" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits(' ', 0, 0)
 
-    digits should equal(Seq(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+    digits should equal(Seq(Some(0), Some(1), Some(2), Some(3), Some(4), Some(5), Some(6), Some(7), Some(8), Some(9)))
   }
 
   it should "calculate the correct possible digits at 1,0 when the character is ' '" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits(' ', 1, 0)
 
-    digits should equal(Seq(1, 4))
+    digits should equal(Seq(None, Some(1), Some(4)))
   }
 
   it should "calculate the correct possible digits at 2,0 when the character is ' '" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits(' ', 2, 0)
 
-    digits should equal(Seq(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+    digits should equal(Seq(Some(0), Some(1), Some(2), Some(3), Some(4), Some(5), Some(6), Some(7), Some(8), Some(9)))
   }
 
   it should "calculate the correct possible digits at 0,1 when the character is ' '" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits(' ', 0, 1)
 
-    digits should equal(Seq(1, 2, 3, 7))
+    digits should equal(Seq(None, Some(1), Some(2), Some(3), Some(7)))
   }
 
   it should "calculate the correct possible digits at 1,1 when the character is ' '" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits(' ', 1, 1)
 
-    digits should equal(Seq(0, 1, 7))
+    digits should equal(Seq(None, Some(0), Some(1), Some(7)))
   }
 
   it should "calculate the correct possible digits at 2,1 when the character is ' '" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits(' ', 2, 1)
 
-    digits should equal(Seq(5, 6))
+    digits should equal(Seq(None, Some(5), Some(6)))
   }
 
   it should "calculate the correct possible digits at 0,2 when the character is ' '" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits(' ', 0, 2)
 
-    digits should equal(Seq(1, 3, 4, 5, 7, 9))
+    digits should equal(Seq(None, Some(1), Some(3), Some(4), Some(5), Some(7), Some(9)))
   }
 
   it should "calculate the correct possible digits at 1,2 when the character is ' '" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits(' ', 1, 2)
 
-    digits should equal(Seq(1, 4, 7))
+    digits should equal(Seq(None, Some(1), Some(4), Some(7)))
   }
 
   it should "calculate the correct possible digits at 2,2 when the character is ' '" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits(' ', 2, 2)
 
-    digits should equal(Seq(2))
+    digits should equal(Seq(None, Some(2)))
   }
 
   it should "calculate the correct possible digits at 0,3 when the character is ' '" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits(' ', 0, 3)
 
-    digits should equal(Seq(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+    digits should equal(Seq(Some(0), Some(1), Some(2), Some(3), Some(4), Some(5), Some(6), Some(7), Some(8), Some(9)))
   }
 
   it should "calculate the correct possible digits at 1,3 when the character is ' '" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits(' ', 1, 3)
 
-    digits should equal(Seq(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+    digits should equal(Seq(Some(0), Some(1), Some(2), Some(3), Some(4), Some(5), Some(6), Some(7), Some(8), Some(9)))
   }
 
   it should "calculate the correct possible digits at 2,3 when the character is ' '" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits(' ', 2, 3)
 
-    digits should equal(Seq(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+    digits should equal(Seq(Some(0), Some(1), Some(2), Some(3), Some(4), Some(5), Some(6), Some(7), Some(8), Some(9)))
   }
 
   it should "calculate the correct possible digits at 0,0 when the character is '_'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('_', 0, 0)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 1,0 when the character is '_'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('_', 1, 0)
 
-    digits should equal(Seq(0, 2, 3, 5, 6, 7, 8, 9))
+    digits should equal(Seq(None, Some(0), Some(2), Some(3), Some(5), Some(6), Some(7), Some(8), Some(9)))
   }
 
   it should "calculate the correct possible digits at 2,0 when the character is '_'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('_', 2, 0)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 0,1 when the character is '_'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('_', 0, 1)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 1,1 when the character is '_'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('_', 1, 1)
 
-    digits should equal(Seq(2, 3, 4, 5, 6, 8, 9))
+    digits should equal(Seq(None, Some(2), Some(3), Some(4), Some(5), Some(6), Some(8), Some(9)))
   }
 
   it should "calculate the correct possible digits at 2,1 when the character is '_'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('_', 2, 1)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 0,2 when the character is '_'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('_', 0, 2)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 1,2 when the character is '_'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('_', 1, 2)
 
-    digits should equal(Seq(0, 2, 3, 5, 6, 8, 9))
+    digits should equal(Seq(None, Some(0), Some(2), Some(3), Some(5), Some(6), Some(8), Some(9)))
   }
 
   it should "calculate the correct possible digits at 2,2 when the character is '_'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('_', 2, 2)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 0,3 when the character is '_'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('_', 0, 3)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 1,3 when the character is '_'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('_', 1, 3)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 2,3 when the character is '_'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('_', 2, 3)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 0,0 when the character is '|'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('|', 0, 0)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 1,0 when the character is '|'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('|', 1, 0)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 2,0 when the character is '|'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('|', 2, 0)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 0,1 when the character is '|'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('|', 0, 1)
 
-    digits should equal(Seq(0, 4, 5, 6, 8, 9))
+    digits should equal(Seq(None, Some(0), Some(4), Some(5), Some(6), Some(8), Some(9)))
   }
 
   it should "calculate the correct possible digits at 1,1 when the character is '|'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('|', 1, 1)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 2,1 when the character is '|'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('|', 2, 1)
 
-    digits should equal(Seq(0, 1, 2, 3, 4, 7, 8, 9))
+    digits should equal(Seq(None, Some(0), Some(1), Some(2), Some(3), Some(4), Some(7), Some(8), Some(9)))
   }
 
   it should "calculate the correct possible digits at 0,2 when the character is '|'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('|', 0, 2)
 
-    digits should equal(Seq(0, 2, 6, 8))
+    digits should equal(Seq(None, Some(0), Some(2), Some(6), Some(8)))
   }
 
   it should "calculate the correct possible digits at 1,2 when the character is '|'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('|', 1, 2)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 2,2 when the character is '|'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('|', 2, 2)
 
-    digits should equal(Seq(0, 1, 3, 4, 5, 6, 7, 8, 9))
+    digits should equal(Seq(None, Some(0), Some(1), Some(3), Some(4), Some(5), Some(6), Some(7), Some(8), Some(9)))
   }
 
   it should "calculate the correct possible digits at 0,3 when the character is '|'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('|', 0, 3)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 1,3 when the character is '|'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('|', 1, 3)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 
   it should "calculate the correct possible digits at 2,3 when the character is '|'" in {
     val digits = (new DigitRepresentation).calculatePossibleDigits('|', 2, 3)
 
-    digits should equal(Seq())
+    digits should equal(Seq(None))
   }
 }
