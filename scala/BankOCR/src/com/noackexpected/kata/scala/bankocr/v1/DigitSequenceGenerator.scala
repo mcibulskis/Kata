@@ -3,9 +3,16 @@ package com.noackexpected.kata.scala.bankocr.v1
 class DigitSequenceGenerator {
   private val digitRepresentation = new DigitRepresentation
 
-  def generateDigits(digits: Seq[Int]): Seq[Seq[Char]] = {
-    generateDigitRepresentation(digits, constructNoisyCharacterRepresentationForDigit(0.0))
+  def generateDigits(digits: Seq[Seq[Int]]): Seq[Seq[Char]] = {
+    digits.flatMap {
+      digitRow =>
+        generateDigitRepresentation(digitRow, constructNoisyCharacterRepresentationForDigit(0.0))
+    }
   }
+
+//  def generateDigits(digits: Seq[Int]): Seq[Seq[Char]] = {
+//    generateDigitRepresentation(digits, constructNoisyCharacterRepresentationForDigit(0.0))
+//  }
 
   def generateNoisyDigits(digits: Seq[Int], noiseRate: Double): Seq[Seq[Char]] = {
     generateDigitRepresentation(digits, constructNoisyCharacterRepresentationForDigit(noiseRate))

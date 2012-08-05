@@ -5,67 +5,67 @@ import org.scalatest.FlatSpec
 
 class DigitSequenceGeneratorSpec extends FlatSpec with ShouldMatchers {
   it should "generate an Seq of Seq of characters that looks like LED digits for 0" in {
-    val text = new DigitSequenceGenerator().generateDigits(List(0))
+    val text = new DigitSequenceGenerator().generateDigits(List(List(0)))
 
     text should equal((new DigitRepresentationSpec).digit0)
   }
 
   it should "generate an Seq of Seq of characters that looks like LED digits for 1" in {
-    val text = new DigitSequenceGenerator().generateDigits(List(1))
+    val text = new DigitSequenceGenerator().generateDigits(List(List(1)))
 
     text should equal((new DigitRepresentationSpec).digit1)
   }
 
   it should "generate an Seq of Seq of characters that looks like LED digits for 2" in {
-    val text = new DigitSequenceGenerator().generateDigits(List(2))
+    val text = new DigitSequenceGenerator().generateDigits(List(List(2)))
 
     text should equal((new DigitRepresentationSpec).digit2)
   }
 
   it should "generate an Seq of Seq of characters that looks like LED digits for 3" in {
-    val text = new DigitSequenceGenerator().generateDigits(List(3))
+    val text = new DigitSequenceGenerator().generateDigits(List(List(3)))
 
     text should equal((new DigitRepresentationSpec).digit3)
   }
 
   it should "generate an Seq of Seq of characters that looks like LED digits for 4" in {
-    val text = new DigitSequenceGenerator().generateDigits(List(4))
+    val text = new DigitSequenceGenerator().generateDigits(List(List(4)))
 
     text should equal((new DigitRepresentationSpec).digit4)
   }
 
   it should "generate an Seq of Seq of characters that looks like LED digits for 5" in {
-    val text = new DigitSequenceGenerator().generateDigits(List(5))
+    val text = new DigitSequenceGenerator().generateDigits(List(List(5)))
 
     text should equal((new DigitRepresentationSpec).digit5)
   }
 
   it should "generate an Seq of Seq of characters that looks like LED digits for 6" in {
-    val text = new DigitSequenceGenerator().generateDigits(List(6))
+    val text = new DigitSequenceGenerator().generateDigits(List(List(6)))
 
     text should equal((new DigitRepresentationSpec).digit6)
   }
 
   it should "generate an Seq of Seq of characters that looks like LED digits for 7" in {
-    val text = new DigitSequenceGenerator().generateDigits(List(7))
+    val text = new DigitSequenceGenerator().generateDigits(List(List(7)))
 
     text should equal((new DigitRepresentationSpec).digit7)
   }
 
   it should "generate an Seq of Seq of characters that looks like LED digits for 8" in {
-    val text = new DigitSequenceGenerator().generateDigits(List(8))
+    val text = new DigitSequenceGenerator().generateDigits(List(List(8)))
 
     text should equal((new DigitRepresentationSpec).digit8)
   }
 
   it should "generate an Seq of Seq of characters that looks like LED digits for 9" in {
-    val text = new DigitSequenceGenerator().generateDigits(List(9))
+    val text = new DigitSequenceGenerator().generateDigits(List(List(9)))
 
     text should equal((new DigitRepresentationSpec).digit9)
   }
 
   it should "generate an Seq of Seq of characters that looks like LED digits from a sequence of digits" in {
-    val text = new DigitSequenceGenerator().generateDigits(List(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+    val text = new DigitSequenceGenerator().generateDigits(List(List(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)))
     val drs = new DigitRepresentationSpec
 
     text should equal(appendedDigits(List(drs.digit0, drs.digit1, drs.digit2, drs.digit3, drs.digit4, drs.digit5, drs.digit6, drs.digit7, drs.digit8, drs.digit9)))
@@ -106,6 +106,18 @@ class DigitSequenceGeneratorSpec extends FlatSpec with ShouldMatchers {
     println("differences: " + numberOfDifferences)
 
     numberOfDifferences should equal(3 * 9)
+  }
+
+  //
+  // =========================
+  // multiple lists of digits
+  //
+  it should "generate a longer sequence of sequences of characters if provided with multiple sequences ('rows') of digits" in {
+    val text = new DigitSequenceGenerator().generateDigits(List(List(1, 2, 3), List(2, 3, 4), List(3, 4, 5)))
+    val drs = new DigitRepresentationSpec
+    val expectedText = appendedDigits(List(drs.digit1, drs.digit2, drs.digit3)) ++ appendedDigits(List(drs.digit2, drs.digit3, drs.digit4)) ++ appendedDigits(List(drs.digit3, drs.digit4, drs.digit5))
+
+    text should equal(expectedText)
   }
 
   //
