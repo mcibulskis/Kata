@@ -7,6 +7,10 @@ class DigitSequenceGeneratorSpec extends FlatSpec with ShouldMatchers {
   private val impl = new DigitSequenceGenerator
   private val drs = new DigitRepresentationSpec
 
+  //=====================
+  // single digit generation
+  behavior of "Single digit generation"
+
   it should "generate an Seq of Seq of characters that looks like LED digits for 0" in {
     val text = impl.generateDigits(List(List(0)))
 
@@ -67,16 +71,19 @@ class DigitSequenceGeneratorSpec extends FlatSpec with ShouldMatchers {
     text should equal(drs.digit9)
   }
 
+  //============================
+  // multiple digit generation
+  behavior of "Multiple digit generation"
+
   it should "generate an Seq of Seq of characters that looks like LED digits from a sequence of digits" in {
     val text = impl.generateDigits(List(List(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)))
 
     text should equal(appendedDigits(List(drs.digit0, drs.digit1, drs.digit2, drs.digit3, drs.digit4, drs.digit5, drs.digit6, drs.digit7, drs.digit8, drs.digit9)))
   }
 
-  //
-  // ========================
+  //========================
   // noisy digits
-  //
+  behavior of "Generating sequences of digits with noisy character representations"
 
   it should "generate a noisy version of the target digit with 2 wrong characters when the noise rate is 0.17" in {
     val text = impl.generateNoisyDigits(List(0), 0.17)
@@ -109,10 +116,10 @@ class DigitSequenceGeneratorSpec extends FlatSpec with ShouldMatchers {
     numberOfDifferences should equal(3 * 9)
   }
 
-  //
-  // =========================
+  //=========================
   // multiple lists of digits
-  //
+  behavior of "Generating multiple lines of digits"
+
   it should "generate a longer sequence of sequences of characters if provided with multiple sequences ('rows') of digits" in {
     val text = impl.generateDigits(List(List(1, 2, 3), List(2, 3, 4), List(3, 4, 5)))
     val expectedText = appendedDigits(List(drs.digit1, drs.digit2, drs.digit3)) ++ appendedDigits(List(drs.digit2, drs.digit3, drs.digit4)) ++ appendedDigits(List(drs.digit3, drs.digit4, drs.digit5))
@@ -120,10 +127,8 @@ class DigitSequenceGeneratorSpec extends FlatSpec with ShouldMatchers {
     text should equal(expectedText)
   }
 
-  //
-  // =========================
+  //=========================
   // helper methods
-  //
 
   private def detectDifferences(actual: Seq[Seq[Char]], expected: Seq[Seq[Char]]): Int = {
     actual.flatten.zip(expected.flatten).aggregate(0)((sum, element) => sum + (if (element._1 == element._2) 0 else 1), _ + _)

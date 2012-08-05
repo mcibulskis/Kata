@@ -5,7 +5,11 @@ import org.scalatest.matchers.ShouldMatchers
 
 class DigitRepresentationSpec extends FlatSpec with ShouldMatchers {
   private val impl = new DigitRepresentation
-  
+
+  //=======================
+  // generation of position descriptors for the character grid
+  behavior of "Generation of position descriptors for the digit character grid"
+
   it should "generate a sequence containing all the coordinates on the grid for the characters for the digit" in {
     val builtGrid = impl.generatePositionGridAsSequence()
 
@@ -23,11 +27,9 @@ class DigitRepresentationSpec extends FlatSpec with ShouldMatchers {
     ))
   }
 
-  //
-  // ===========================================================================
-  // Tests for calculating the character at a position for a digit
-  // ===========================================================================
-  //
+  //===========================================================================
+  // calculating the character at a position for a digit
+  behavior of "Calculating the character at a position for a digit"
 
   it should "calculate the correct character at all positions for 0" in {
     val builtCharacters = buildCharactersForDigit(0)
@@ -170,11 +172,9 @@ class DigitRepresentationSpec extends FlatSpec with ShouldMatchers {
   )
 
 
-  //
-  // ===========================================================================
-  // Tests for calculating the possible digits based on characters at positions
-  // ===========================================================================
-  //
+  //===========================================================================
+  // calculating the possible digits based on characters at positions
+  behavior of "Calculating the possible digits based on characters at positions"
 
   it should "calculate the correct possible digits at 0,0 when the character is ' '" in {
     val digits = impl.calculatePossibleDigits(' ', 0, 0)
