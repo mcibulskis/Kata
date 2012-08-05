@@ -9,6 +9,7 @@ class DigitSequenceGeneratorSpec extends FlatSpec with ShouldMatchers {
 
   //=====================
   // single digit generation
+  //
   behavior of "Single digit generation"
 
   it should "generate an Seq of Seq of characters that looks like LED digits for 0" in {
@@ -73,6 +74,7 @@ class DigitSequenceGeneratorSpec extends FlatSpec with ShouldMatchers {
 
   //============================
   // multiple digit generation
+  //
   behavior of "Multiple digit generation"
 
   it should "generate an Seq of Seq of characters that looks like LED digits from a sequence of digits" in {
@@ -83,6 +85,7 @@ class DigitSequenceGeneratorSpec extends FlatSpec with ShouldMatchers {
 
   //========================
   // noisy digits
+  //
   behavior of "Generating sequences of digits with noisy character representations"
 
   it should "generate a noisy version of the target digit with 2 wrong characters when the noise rate is 0.17" in {
@@ -118,6 +121,7 @@ class DigitSequenceGeneratorSpec extends FlatSpec with ShouldMatchers {
 
   //=========================
   // multiple lists of digits
+  //
   behavior of "Generating multiple lines of digits"
 
   it should "generate a longer sequence of sequences of characters if provided with multiple sequences ('rows') of digits" in {
@@ -129,6 +133,7 @@ class DigitSequenceGeneratorSpec extends FlatSpec with ShouldMatchers {
 
   //=========================
   // helper methods
+  //
 
   private def detectDifferences(actual: Seq[Seq[Char]], expected: Seq[Seq[Char]]): Int = {
     actual.flatten.zip(expected.flatten).aggregate(0)((sum, element) => sum + (if (element._1 == element._2) 0 else 1), _ + _)

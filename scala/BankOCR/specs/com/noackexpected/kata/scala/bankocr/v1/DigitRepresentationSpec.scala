@@ -8,6 +8,7 @@ class DigitRepresentationSpec extends FlatSpec with ShouldMatchers {
 
   //=======================
   // generation of position descriptors for the character grid
+  //
   behavior of "Generation of position descriptors for the digit character grid"
 
   it should "generate a sequence containing all the coordinates on the grid for the characters for the digit" in {
@@ -29,6 +30,7 @@ class DigitRepresentationSpec extends FlatSpec with ShouldMatchers {
 
   //===========================================================================
   // calculating the character at a position for a digit
+  //
   behavior of "Calculating the character at a position for a digit"
 
   it should "calculate the correct character at all positions for 0" in {
@@ -174,6 +176,7 @@ class DigitRepresentationSpec extends FlatSpec with ShouldMatchers {
 
   //===========================================================================
   // calculating the possible digits based on characters at positions
+  //
   behavior of "Calculating the possible digits based on characters at positions"
 
   it should "calculate the correct possible digits at 0,0 when the character is ' '" in {

@@ -9,6 +9,7 @@ class ParserSpec extends FlatSpec with ShouldMatchers {
 
   //======================
   // single line of clean digits
+  //
   behavior of "Parsing a single line of clean digits"
 
   it should "convert a sequence of sequence of characters describing a single digit into a sequence containing that digit" in {
@@ -29,6 +30,7 @@ class ParserSpec extends FlatSpec with ShouldMatchers {
 
   //==========================
   // single line of unrecognizable digits
+  //
   behavior of "Parsing a single line of unrecognizable digits"
 
   it should "convert a completely unrecognizable sequence of characters into a 'None' option" in {
@@ -41,6 +43,7 @@ class ParserSpec extends FlatSpec with ShouldMatchers {
 
   //===========================
   // single line of noisy digits
+  //
   behavior of "Parsing a single line of noisy, but recognizable digits"
 
   it should "allow for fuzzy matching of digits when the character representation is slightly noisy" in {
@@ -53,6 +56,7 @@ class ParserSpec extends FlatSpec with ShouldMatchers {
 
   //===============================
   // multiple lines of digits
+  //
   behavior of  "Parsing multiple lines of digits"
 
   it should "allow for multiple 'rows' of digits, producing a separate sequence of digits for each 'row'" in {
