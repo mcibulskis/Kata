@@ -1,6 +1,8 @@
 package com.noackexpected.kata.scala.bankocr.v1
 
 class Parser {
+  private val digitRepresentation = new DigitRepresentation
+
   def parse(text: Seq[Seq[Char]]): Seq[Seq[Option[Int]]] = {
     val possibilities = mapTextToPossibleDigits(text)
     val calculatedValues = reducePossibilities(possibilities)
@@ -60,7 +62,7 @@ class Parser {
         element._2
     }.map {
       digitAndOccurrences =>
-        (digitAndOccurrences._1, digitAndOccurrences._2.size / 12.0)
+        (digitAndOccurrences._1, digitAndOccurrences._2.size / (digitRepresentation.NUM_COLUMNS * digitRepresentation.NUM_ROWS).toDouble)
     }.toSeq.sortWith {
       (digitAndLikelihood1, digitAndLikelihood2) =>
         digitAndLikelihood1._2 > digitAndLikelihood2._2
@@ -86,11 +88,11 @@ class Parser {
   }
 
   private def generatePossibleDigitsForCharacterAtIndex(currentCharacter: Char, characterIndex: Int, lineIndex: Int): Seq[((Int, Int, Int, Int), Option[Int])] = {
-    val digitRowIndex: Int = characterIndex / 3
-    val positionXIndex: Int = characterIndex % 3
-    val digitColumnIndex: Int = lineIndex / 4
-    val positionYIndex: Int = lineIndex % 4
-    val possibleDigits = (new DigitRepresentation).calculatePossibleDigits(currentCharacter, positionXIndex, positionYIndex)
+    val digitRowIndex: Int = characterIndex / digitRepresentation.NUM_COLUMNS
+    val positionXIndex: Int = characterIndex % digitRepresentation.NUM_COLUMNS
+    val digitColumnIndex: Int = lineIndex / digitRepresentation.NUM_ROWS
+    val positionYIndex: Int = lineIndex % digitRepresentation.NUM_ROWS
+    val possibleDigits = digitRepresentation.calculatePossibleDigits(currentCharacter, positionXIndex, positionYIndex)
     possibleDigits.map {
       digit =>
         ((digitColumnIndex, digitRowIndex, positionXIndex, positionYIndex), digit)

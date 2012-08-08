@@ -1,6 +1,11 @@
 package com.noackexpected.kata.scala.bankocr.v1
 
 class DigitRepresentation {
+  val NUM_ROWS = 4
+  val NUM_COLUMNS = 3
+
+  private val BITS_PER_POSITION = 4
+
   private val digitToDescriptorMap = Map(
     0 -> 0x020101121000L,
     1 -> 0x000001001000L,
@@ -26,9 +31,9 @@ class DigitRepresentation {
   }
 
   def generatePositionGrid(): Seq[Seq[(Int, Int)]] = {
-    (0 until 4).map {
+    (0 until NUM_ROWS).map {
       rowIndex =>
-        (0 until 3).map {
+        (0 until NUM_COLUMNS).map {
           columnIndex =>
             (columnIndex, rowIndex)
         }
@@ -54,8 +59,8 @@ class DigitRepresentation {
   }
 
   def generateDescriptorAtPositionForDigit(digit: Int, positionXIndex: Int, positionYIndex: Int): Long = {
-    val mask = digitDescriptorMask >> (((positionYIndex * 3) + positionXIndex) * 4)
-    (digitToDescriptorMap.get(digit).get & mask) >> ((((3 - positionYIndex) * 3) + (2 - positionXIndex)) * 4)
+    val mask = digitDescriptorMask >> (((positionYIndex * NUM_COLUMNS) + positionXIndex) * BITS_PER_POSITION)
+    (digitToDescriptorMap.get(digit).get & mask) >> ((((NUM_COLUMNS - positionYIndex) * NUM_COLUMNS) + ((NUM_COLUMNS - 1) - positionXIndex)) * BITS_PER_POSITION)
   }
 
   private def invertMap[K, V](targetMap: Map[K, V]): Map[V, K] = {

@@ -94,9 +94,9 @@ class DigitRepresentationSpec extends FlatSpec with ShouldMatchers {
   }
 
   private def buildCharactersForDigit(digit: Int): Seq[Seq[Char]] = {
-    (0 until 4).map {
+    (0 until impl.NUM_ROWS).map {
       rowIndex =>
-        (0 until 3).map {
+        (0 until impl.NUM_COLUMNS).map {
           columnIndex =>
             impl.calculateCharacterAtPositionForDigit(digit, columnIndex, rowIndex)
         }
