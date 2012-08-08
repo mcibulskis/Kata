@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d097e0d9-ef73-40e6-9bcc-86b976a1524f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/ChecksumCalculatorSpec.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/ChecksumCalculator.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/DigitSequenceGeneratorSpec.scala" afterPath="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/DigitSequenceGeneratorSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/ParserSpec.scala" afterPath="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/ParserSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/DigitSequenceGenerator.scala" afterPath="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/DigitSequenceGenerator.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/Parser.scala" afterPath="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/Parser.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/AccountNumberValidatorSpec.scala" afterPath="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/AccountNumberValidatorSpec.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/AccountNumberValidator.scala" afterPath="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/AccountNumberValidator.scala" />
     </list>
     <ignored path="BankOCR.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,55 +64,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ParserSpec.scala" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/ParserSpec.scala">
+      <file leaf-file-name="ChecksumCalculatorSpec.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/ChecksumCalculatorSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="44" selection-start="1467" selection-end="1467" vertical-scroll-proportion="0.937751">
+            <state line="15" column="55" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#49#93#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChecksumCalculator.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/ChecksumCalculator.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="20" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Parser.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/Parser.scala">
+      <file leaf-file-name="AccountNumberValidatorSpec.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/AccountNumberValidatorSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="53" selection-start="643" selection-end="643" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="36" column="3" selection-start="1251" selection-end="1251" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#49#93#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DigitRepresentationSpec.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/DigitRepresentationSpec.scala">
+      <file leaf-file-name="AccountNumberValidator.scala" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/AccountNumberValidator.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="372" column="34" selection-start="12444" selection-end="12444" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DigitRepresentation.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/DigitRepresentation.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="25" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DigitSequenceGenerator.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/DigitSequenceGenerator.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="353" selection-end="514" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DigitSequenceGeneratorSpec.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/DigitSequenceGeneratorSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="36" selection-start="5201" selection-end="5201" vertical-scroll-proportion="0.0">
+            <state line="5" column="0" selection-start="164" selection-end="164" vertical-scroll-proportion="0.14423077">
               <folding />
             </state>
           </provider>
@@ -131,19 +117,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/specs/DigitRepresentationSpec.scala" />
-        <option value="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/ParserSpec.scala" />
         <option value="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/Parser.scala" />
         <option value="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/DigitSequenceGeneratorSpec.scala" />
         <option value="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/DigitSequenceGenerator.scala" />
         <option value="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/DigitRepresentation.scala" />
         <option value="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/DigitRepresentationSpec.scala" />
         <option value="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/DigitRepresentation.scala" />
-        <option value="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/DigitRepresentationSpec.scala" />
         <option value="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/DigitSequenceGenerator.scala" />
-        <option value="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/DigitSequenceGeneratorSpec.scala" />
-        <option value="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/ParserSpec.scala" />
         <option value="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/Parser.scala" />
+        <option value="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/AccountValidatorSpec.scala" />
+        <option value="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/ParserSpec.scala" />
+        <option value="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/DigitSequenceGeneratorSpec.scala" />
+        <option value="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/DigitRepresentationSpec.scala" />
+        <option value="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/AccountNumberValidatorSpec.scala" />
+        <option value="$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/ChecksumCalculatorSpec.scala" />
+        <option value="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/ChecksumCalculator.scala" />
+        <option value="$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/AccountNumberValidator.scala" />
       </list>
     </option>
   </component>
@@ -178,63 +167,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BankOCR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BankOCR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Tests">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="BankOCR">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="specs">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="com/noackexpected/kata/scala/bankocr">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="All">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="BankOCR">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -287,6 +219,63 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="v1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Tests">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="BankOCR">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="specs">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="com/noackexpected/kata/scala/bankocr">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="All">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="BankOCR">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BankOCR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BankOCR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -596,7 +585,27 @@
       <created>1343942696588</created>
       <updated>1343942696588</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added multi-line reading">
+      <created>1344132128910</created>
+      <updated>1344132128910</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added validation of account number length">
+      <created>1344133061750</created>
+      <updated>1344133061750</updated>
+    </task>
+    <task id="LOCAL-00006" summary="refactored tests to be slightly more readable">
+      <created>1344133579584</created>
+      <updated>1344133579584</updated>
+    </task>
+    <task id="LOCAL-00007" summary="refactored tests to be slightly more readable">
+      <created>1344135297192</created>
+      <updated>1344135297192</updated>
+    </task>
+    <task id="LOCAL-00008" summary="refactored tests to be slightly more readable">
+      <created>1344136084389</created>
+      <updated>1344136084389</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -665,7 +674,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="added implementation of fuzzy recognition of digits" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored tests to be slightly more readable" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -681,6 +690,9 @@
     <MESSAGE value="added generation of noisy digits" />
     <MESSAGE value="converted return value from parsing to be a sequence of options to allow for &quot;None&quot; when a character is completely unrecognizable" />
     <MESSAGE value="added implementation of fuzzy recognition of digits" />
+    <MESSAGE value="added multi-line reading" />
+    <MESSAGE value="added validation of account number length" />
+    <MESSAGE value="refactored tests to be slightly more readable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -700,11 +712,6 @@
         <state line="14" column="53" selection-start="643" selection-end="643" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/DigitRepresentationSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="372" column="34" selection-start="12444" selection-end="12444" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/DigitRepresentation.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="25" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.0" />
@@ -717,12 +724,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/DigitSequenceGeneratorSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="36" selection-start="5201" selection-end="5201" vertical-scroll-proportion="0.0" />
+        <state line="12" column="0" selection-start="354" selection-end="354" vertical-scroll-proportion="0.35502958" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/ParserSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="44" selection-start="1467" selection-end="1467" vertical-scroll-proportion="0.937751">
+        <state line="12" column="0" selection-start="332" selection-end="332" vertical-scroll-proportion="0.28846154" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/DigitRepresentationSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="336" selection-end="336" vertical-scroll-proportion="0.31730768" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/AccountNumberValidatorSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="3" selection-start="1251" selection-end="1251" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#49#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/specs/com/noackexpected/kata/scala/bankocr/v1/ChecksumCalculatorSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="55" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#49#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/ChecksumCalculator.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="20" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/noackexpected/kata/scala/bankocr/v1/AccountNumberValidator.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="164" selection-end="164" vertical-scroll-proportion="0.14423077">
           <folding />
         </state>
       </provider>
