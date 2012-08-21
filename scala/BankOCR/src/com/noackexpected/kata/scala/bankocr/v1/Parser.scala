@@ -13,10 +13,10 @@ class Parser {
     }
   }
 
-  def parseWithProbabilities(text: Seq[Seq[Char]]): Seq[Seq[Seq[(Option[Int], Double)]]] = {
+  def parseWithConfidences(text: Seq[Seq[Char]]): Seq[Seq[Seq[(Option[Int], Double)]]] = {
     val possibilities = mapTextToPossibleDigits(text)
-    val calculatedProbabilities = calculateProbabilities(possibilities)
-    val submapMap = createSubmapsPerDigitRow(calculatedProbabilities)
+    val calculatedConfidences = calculateConfidences(possibilities)
+    val submapMap = createSubmapsPerDigitRow(calculatedConfidences)
     submapMap.keys.toList.sorted.map {
       digitRow =>
         convertRowOfPossibleValuesToSequenceOfOrderedOptions(submapMap.get(digitRow).get)
@@ -54,7 +54,7 @@ class Parser {
     }
   }
 
-  private def calculateProbabilities(possibilities: Seq[((Int, Int, Int, Int), Option[Int])]): Map[(Int, Int), Seq[(Option[Int], Double)]] = {
+  private def calculateConfidences(possibilities: Seq[((Int, Int, Int, Int), Option[Int])]): Map[(Int, Int), Seq[(Option[Int], Double)]] = {
     groupByDigitColumnAndDigitRow(possibilities).map {
       keyAndValue =>
         val key = keyAndValue._1

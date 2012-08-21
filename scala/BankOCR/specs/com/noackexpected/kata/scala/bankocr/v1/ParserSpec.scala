@@ -71,26 +71,30 @@ class ParserSpec extends FlatSpec with ShouldMatchers {
   }
 
   //===============================
-  // return probabilities with digits
+  // return confidences with digits
   //
-  behavior of "Returning probabilities for each of the digits parsed"
+  behavior of "Returning confidences for each of the digits parsed"
 
-  it should "return, for a single digit, a sequence of possible values with probabilities" in {
+  it should "return, for a single digit, a sequence of possible values with confidences" in {
     val text = generator.generateDigits(List(List(1)))
 
-    val digitsWithProbabilities = impl.parseWithProbabilities(text)
+    val digitsWithConfidences = impl.parseWithConfidences(text)
 
-    val probabilitiesFor1 = digitsWithProbabilities(0)(0)
-    probabilitiesFor1.size should equal(11)
+    val confidencesFor1 = digitsWithConfidences(0)(0)
+    confidencesFor1.size should equal(11)
 
-    val orderedOptionsFor1 = probabilitiesFor1.map {
-      optionWithProbability =>
-        optionWithProbability._1
+    val orderedOptionsFor1 = confidencesFor1.map {
+      optionWithConfidences =>
+        optionWithConfidences._1
     }
     orderedOptionsFor1 should equal(List(Some(1), Some(7), Some(4), Some(3), Some(9), Some(0), Some(2), Some(8), Some(5), None, Some(6)))
 
-    probabilitiesFor1(0)._2 should equal(1.0)   // Some(1)
-    probabilitiesFor1(3)._2 should equal(0.75)  // Some(3)
-    probabilitiesFor1(10)._2 should equal(0.5)  // Some(6)
+    confidencesFor1(0)._2 should equal(1.0)   // Some(1)
+    confidencesFor1(3)._2 should equal(0.75)  // Some(3)
+    confidencesFor1(10)._2 should equal(0.5)  // Some(6)
   }
+
+//  it should "return confidences for each possible value for all digits, even spanning multiple rows" in {
+//    0 should equal(1)
+//  }
 }
