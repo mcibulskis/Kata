@@ -94,7 +94,37 @@ class ParserSpec extends FlatSpec with ShouldMatchers {
     confidencesFor1(10)._2 should equal(0.5)  // Some(6)
   }
 
-//  it should "return confidences for each possible value for all digits, even spanning multiple rows" in {
-//    0 should equal(1)
-//  }
+  it should "return confidences for each possible value for all digits, even spanning multiple rows" in {
+    val text = generator.generateDigits(List(List(0, 2), List(3, 4)))
+
+    val digitsWithConfidences = impl.parseWithConfidences(text)
+
+    val confidencesFor0 = digitsWithConfidences(0)(0)
+    val orderedOptionsFor0 = confidencesFor0.map { _._1 }
+    orderedOptionsFor0 should equal(List(Some(0), Some(8), Some(9), Some(6), Some(3), Some(2), Some(5), Some(7), Some(1), Some(4), None))
+    confidencesFor0.size should equal(11)
+    confidencesFor0(0)._2 should equal(1.0)  // Some(0)
+    confidencesFor0(7)._2 should equal(0.75) // Some(7)
+
+    val confidencesFor2 = digitsWithConfidences(0)(1)
+    val orderedOptionsFor2 = confidencesFor2.map { _._1 }
+    orderedOptionsFor2 should equal(List(Some(2), Some(3), Some(8), Some(9), Some(0), Some(6), Some(5), Some(7), Some(1), Some(4), None))
+    confidencesFor2.size should equal(11)
+    confidencesFor2(0)._2 should equal(1.0)     // Some(2)
+    confidencesFor2(6)._2 should equal(2.0/3.0) // Some(5)
+
+    val confidencesFor3 = digitsWithConfidences(1)(0)
+    val orderedOptionsFor3 = confidencesFor3.map { _._1 }
+    orderedOptionsFor3 should equal(List(Some(3), Some(9), Some(2), Some(8), Some(5), Some(7), Some(1), Some(4), Some(0), Some(6), None))
+    confidencesFor3.size should equal(11)
+    confidencesFor3(0)._2 should equal(1.0)  // Some(3)
+    confidencesFor3(8)._2 should equal(0.75) // Some(0)
+
+    val confidencesFor4 = digitsWithConfidences(1)(1)
+    val orderedOptionsFor4 = confidencesFor4.map { _._1 }
+    orderedOptionsFor4 should equal(List(Some(4), Some(1), Some(9), Some(3), Some(8), Some(5), Some(7), Some(0), Some(6), Some(2), None))
+    confidencesFor4.size should equal(11)
+    confidencesFor4(0)._2 should equal(1.0)     // Some(4)
+    confidencesFor4(8)._2 should equal(2.0/3.0) // Some(6)
+  }
 }
