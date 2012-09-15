@@ -9,9 +9,12 @@ class AnagramGeneratorSpec extends FlatSpec with ShouldMatchers {
   behavior of "Creation of an anagram generator"
 
   it should "load the default dictionary if no specific dictionary is specified" in {
-    impl.getDictionaryNames should equal(Seq("ispell-enwl-3.1.20/english.0"));
+    impl.dictionaryFiles should equal(Seq("src/test/resources/ispell-enwl-3.1.20/english.0"))
   }
 
+  it should "return the correct dictionary size" in {
+    impl.dictionarySize should equal(47158)
+  }
 
   //
   // =====================================
