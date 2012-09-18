@@ -19,10 +19,25 @@ class FingerprintGeneratorSpec extends FlatSpec with ShouldMatchers {
     result(2) should equal(0)
     result(3) should equal(1)
     result(4) should equal(0)
+    totalCount(result) should equal(4)
   }
 
   it should "correctly tally the number of each letter in a case-insensitive manner" in {
     val result = generateFingerprint("aaAAa")
     result(0) should equal(5)
+    totalCount(result) should equal(5)
+  }
+
+  it should "ignore characters that are not in [a-zA-Z]" in {
+    val result = generateFingerprint("a'?1$." + ('a'.toInt + 28).toChar)
+    result(0) should equal(1)
+    totalCount(result) should equal(1)
+  }
+
+  private def totalCount(fingerprint: Array[Byte]): Int = {
+    fingerprint.foldLeft[Int](0) {
+      (sum, value) =>
+        sum + value.toInt
+    }
   }
 }

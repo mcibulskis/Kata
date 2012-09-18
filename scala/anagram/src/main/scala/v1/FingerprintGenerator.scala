@@ -6,13 +6,15 @@ object FingerprintGenerator {
 
     val asciiA = 'a'.toInt
     val characterMap = text.groupBy(_.toLower.toInt - asciiA)
-    println("asciiA = " + asciiA)
-    println("map = " + characterMap)
-    characterMap.foreach {
+    characterMap.view.filter(keyAndValue => alphabeticIndex(keyAndValue._1)).foreach {
       indexAndLetters =>
         fingerprint(indexAndLetters._1) = indexAndLetters._2.length.toByte
     }
 
     fingerprint
+  }
+
+  private def alphabeticIndex(index: Int): Boolean = {
+    index >= 0 && index <= 26
   }
 }

@@ -3,6 +3,7 @@ package v1
 import org.scalatest.FlatSpec
 import org.scalatest.matchers.ShouldMatchers
 import java.io.FileNotFoundException
+import v1.FingerprintGenerator._
 
 class DictionarySpec extends FlatSpec with ShouldMatchers {
   val impl = new Dictionary(Seq("src/test/resources/ispell-enwl-3.1.20/english.0"))
@@ -55,5 +56,20 @@ class DictionarySpec extends FlatSpec with ShouldMatchers {
     intercept[FileNotFoundException] {
       new Dictionary(Seq("src/test/resources/ispell-enwl-3.1.20/english.0", "notARealFile.txt"))
     }
+  }
+
+  //
+  // =========================================
+  //
+
+  behavior of "Asking for words or fingerprints from the dictionary"
+
+  it should "be able to return a list of all words in the dictionary" in {
+    impl.words.size should equal(47158)
+    impl.words(0) should equal("ACM")
+  }
+
+  it should "be able to return the fingerprint for any word in the dictionary" in {
+    impl.getFingerprint("ACM") should equal(generateFingerprint("ACM"))
   }
 }
