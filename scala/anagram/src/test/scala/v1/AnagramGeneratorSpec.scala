@@ -23,8 +23,10 @@ class AnagramGeneratorSpec extends FlatSpec with ShouldMatchers {
   behavior of "Generation of anagrams consisting of one word from the target word"
 
   it should "return an empty sequence if no one word anagrams can be created from the target word" in {
-    val results = impl.generateAnagrams(1, "zzzzzz")
+    impl.generateAnagrams(1, "zzzzzz").size should equal(0)
+  }
 
-    results.size should equal(0)
+  it should "return a sequence containing only the same word as the target word if there are no one word anagrams for the target word" in {
+    impl.generateAnagrams(1, "an") should equal(Seq("an"))
   }
 }

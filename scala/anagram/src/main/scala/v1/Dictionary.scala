@@ -1,7 +1,7 @@
 package v1
 
 class Dictionary(val dictionaryFiles: Seq[String]) {
-  private val words = loadDictionaryFiles()
+  val words = loadDictionaryFiles()
 
   def size = {
     words.size
