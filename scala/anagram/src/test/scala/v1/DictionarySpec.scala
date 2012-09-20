@@ -70,6 +70,6 @@ class DictionarySpec extends FlatSpec with ShouldMatchers {
   }
 
   it should "be able to return the fingerprint for any word in the dictionary" in {
-    impl.getFingerprint("ACM") should equal(generateFingerprint("ACM"))
+    impl.getFingerprint("ACM") should equal(new Fingerprint(generateFingerprint("ACM")))
   }
 }

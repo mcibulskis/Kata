@@ -9,14 +9,14 @@ class Dictionary(val dictionaryFiles: Seq[String]) {
 
   def words: Seq[String] = fingerprintMap.keys.toList.sorted
 
-  def getFingerprint(word: String): Array[Byte] = {
+  def getFingerprint(word: String): Fingerprint = {
     fingerprintMap(word)
   }
 
-  private def generateFingerprintMap(words: Seq[String]): Map[String, Array[Byte]] = {
+  private def generateFingerprintMap(words: Seq[String]): Map[String, Fingerprint] = {
     words.map {
       word =>
-        (word, generateFingerprint(word))
+        (word, new Fingerprint(generateFingerprint(word)))
     }.toMap
   }
 
