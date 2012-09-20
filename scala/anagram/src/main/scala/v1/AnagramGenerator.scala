@@ -10,4 +10,8 @@ class AnagramGenerator(val dictionaryFiles: Seq[String]) {
   def generateAnagrams(numberOfWords: Int, targetWord: String): Seq[String] = {
     Seq()
   }
+
+  def generateWordAndFingerprintRemainderFromFingerprint(targetFingerprint: Array[Byte]): Seq[(String, Array[Byte])] = {
+    Seq()
+  }
 }

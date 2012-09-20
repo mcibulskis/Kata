@@ -7,6 +7,10 @@ import v1.FingerprintGenerator._
 class FingerprintGeneratorSpec extends FlatSpec with ShouldMatchers {
   behavior of "Fingerprint generation characteristics"
 
+  it should "generate an empty fingerprint if the word is an empty string" in {
+    generateFingerprint("").foreach(_ should equal(0))
+  }
+
   it should "generate a 26 byte fingerprint" in {
     val result: Array[Byte] = generateFingerprint("targetword")
     result.size should equal(26)

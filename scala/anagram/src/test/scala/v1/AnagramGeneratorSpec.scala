@@ -3,6 +3,8 @@ package v1
 import org.scalatest.FlatSpec
 import org.scalatest.matchers.ShouldMatchers
 
+import v1.FingerprintGenerator._
+
 class AnagramGeneratorSpec extends FlatSpec with ShouldMatchers {
   val impl = new AnagramGenerator()
 
@@ -28,5 +30,19 @@ class AnagramGeneratorSpec extends FlatSpec with ShouldMatchers {
 
   it should "return a sequence containing only the same word as the target word if there are no one word anagrams for the target word" in {
     impl.generateAnagrams(1, "an") should equal(Seq("an"))
+  }
+
+  //
+  // =====================================
+  //
+
+  behavior of "Generation of words and fingerprint remainders from target fingerprints"
+
+  it should "return an empty sequence if no words can be generated from the target fingerprint" in {
+    impl.generateWordAndFingerprintRemainderFromFingerprint(generateFingerprint("zzzzz")) should equal(Seq())
+  }
+
+  it should "return a sequence containing only a single word if it is the only word that can be made from the target fingerprint" in {
+    impl.generateWordAndFingerprintRemainderFromFingerprint(generateFingerprint("a")) should equal(Seq(("a", generateFingerprint(""))))
   }
 }
