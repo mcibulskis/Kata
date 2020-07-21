@@ -22,4 +22,3 @@ defmodule FizzbuzzTest do
     assert Fizzbuzz.translate(30) == "FizzBuzz"
   end
 end
-

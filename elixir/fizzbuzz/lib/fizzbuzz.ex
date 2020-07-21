@@ -43,4 +43,3 @@ defmodule Fizzbuzz do
     number
   end
 end
-
