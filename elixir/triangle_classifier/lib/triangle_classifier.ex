@@ -22,22 +22,24 @@ defmodule TriangleClassifier do
       iex> TriangleClassifier.classify(1, 1, 4)
       {:error, :illegal_triangle}
   """
-  def classify(side1, side2, side3)
-
-  def classify(side1, side2, side3)
-      when side1 + side2 <= side3 or side1 + side3 <= side2 or side2 + side3 <= side1 do
-    {:error, :illegal_triangle}
+  def classify(side1, side2, side3) do
+    cond do
+      is_illegal(side1, side2, side3) -> {:error, :illegal_triangle}
+      is_equilateral(side1, side2, side3) -> {:ok, :equilateral}
+      is_isosceles(side1, side2, side3) -> {:ok, :isosceles}
+      true -> {:ok, :scalene}
+    end
   end
 
-  def classify(side1, side2, side3) when side1 == side2 and side1 == side3 do
-    {:ok, :equilateral}
+  defp is_illegal(s1, s2, s3) do
+    s1 + s2 <= s3 or s2 + s3 <= s1 or s1 + s3 <= s2
   end
 
-  def classify(side1, side2, side3) when side1 == side2 or side1 == side3 or side2 == side3 do
-    {:ok, :isosceles}
+  defp is_equilateral(s1, s2, s3) do
+    s1 == s2 and s1 == s3
   end
 
-  def classify(_side1, _side2, _side3) do
-    {:ok, :scalene}
+  defp is_isosceles(s1, s2, s3) do
+    s1 == s2 or s1 == s3 or s2 == s3
   end
 end
