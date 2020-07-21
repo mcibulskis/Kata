@@ -6,5 +6,9 @@ defmodule FizzbuzzTest do
     assert Fizzbuzz.translate(1) == 1
     assert Fizzbuzz.translate(7) == 7
   end
+
+  test "3 should translate to Fizz" do
+    assert Fizzbuzz.translate(3) == "Fizz"
+  end
 end
 
