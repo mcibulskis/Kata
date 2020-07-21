@@ -18,5 +18,7 @@ defmodule TriangleClassifierTest do
 
   test "return an error status when the triangle described is not a legal triangle" do
     assert TriangleClassifier.classify(1, 1, 4) == {:error, :illegal_triangle}
+    assert TriangleClassifier.classify(1, 4, 1) == {:error, :illegal_triangle}
+    assert TriangleClassifier.classify(4, 1, 1) == {:error, :illegal_triangle}
   end
 end

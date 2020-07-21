@@ -24,7 +24,8 @@ defmodule TriangleClassifier do
   """
   def classify(side1, side2, side3)
 
-  def classify(side1, side2, side3) when side1 + side2 <= side3 do
+  def classify(side1, side2, side3)
+      when side1 + side2 <= side3 or side1 + side3 <= side2 or side2 + side3 <= side1 do
     {:error, :illegal_triangle}
   end
 
