@@ -8,11 +8,11 @@ defmodule Fibonacci do
 
   ## Examples
 
-      iex> Fibonacci.sequence() |> Enum.take(1)
-      [0]
+      iex> Fibonacci.sequence() |> Enum.take(2)
+      [0, 1]
 
   """
   def sequence do
-    Stream.cycle([0])
+    Stream.cycle([0, 1])
   end
 end
