@@ -13,8 +13,17 @@ defmodule TriangleClassifier do
       iex> TriangleClassifier.classify(1, 2, 3)
       :scalene
 
+      iex> TriangleClassifier.classify(1, 1, 3)
+      :isosceles
+
   """
-  def classify(side1, side2, side3) do
+  def classify(side1, side2, side3)
+
+  def classify(side1, side2, side3) when side1 == side2 do
+    :isosceles
+  end
+
+  def classify(_side1, _side2, _side3) do
     :scalene
   end
 end
