@@ -4,15 +4,15 @@ defmodule Fibonacci do
   """
 
   @doc """
-  Hello world.
+  Returns a stream representing the Fibonacci sequence
 
   ## Examples
 
-      iex> Fibonacci.hello()
-      :world
+      iex> Fibonacci.sequence() |> Enum.take(1)
+      [0]
 
   """
-  def hello do
-    :world
+  def sequence do
+    Stream.cycle([0])
   end
 end
