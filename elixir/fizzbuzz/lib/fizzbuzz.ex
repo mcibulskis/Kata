@@ -28,7 +28,7 @@ defmodule Fizzbuzz do
     "Fizz"
   end
 
-  def translate(number) when number == 5 do
+  def translate(number) when rem(number, 5) == 0 do
     "Buzz"
   end
 
