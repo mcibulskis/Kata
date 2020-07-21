@@ -11,4 +11,8 @@ defmodule TriangleClassifierTest do
     assert TriangleClassifier.classify(1, 2, 1) == :isosceles
     assert TriangleClassifier.classify(2, 1, 1) == :isosceles
   end
+
+  test "correctly identifies an equilateral triangle when all three sides are equal" do
+    assert TriangleClassifier.classify(1, 1, 1) == :equilateral
+  end
 end

@@ -16,8 +16,14 @@ defmodule TriangleClassifier do
       iex> TriangleClassifier.classify(1, 1, 3)
       :isosceles
 
+      iex> TriangleClassifier.classify(1, 1, 1)
+      :equilateral
   """
   def classify(side1, side2, side3)
+
+  def classify(side1, side2, side3) when side1 == side2 and side1 == side3 do
+    :equilateral
+  end
 
   def classify(side1, side2, side3) when side1 == side2 or side1 == side3 or side2 == side3 do
     :isosceles
