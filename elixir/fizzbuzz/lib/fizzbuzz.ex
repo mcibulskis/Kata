@@ -21,7 +21,7 @@ defmodule Fizzbuzz do
   """
   def translate(number)
 
-  def translate(number) when number == 3 do
+  def translate(number) when rem(number,3) == 0 do
     "Fizz"
   end
 
