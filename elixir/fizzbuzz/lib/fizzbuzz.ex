@@ -13,7 +13,7 @@ defmodule Fizzbuzz do
 
   """
   def translate(number) do
-    1
+    number
   end
 end
 
