@@ -10,26 +10,33 @@ defmodule TriangleClassifier do
 
   ## Examples
 
-      iex> TriangleClassifier.classify(1, 2, 3)
-      :scalene
+      iex> TriangleClassifier.classify(4, 2, 3)
+      {:ok, :scalene}
 
-      iex> TriangleClassifier.classify(1, 1, 3)
-      :isosceles
+      iex> TriangleClassifier.classify(2, 2, 3)
+      {:ok, :isosceles}
 
       iex> TriangleClassifier.classify(1, 1, 1)
-      :equilateral
+      {:ok, :equilateral}
+
+      iex> TriangleClassifier.classify(1, 1, 4)
+      {:error, :illegal_triangle}
   """
   def classify(side1, side2, side3)
 
+  def classify(side1, side2, side3) when side1 + side2 <= side3 do
+    {:error, :illegal_triangle}
+  end
+
   def classify(side1, side2, side3) when side1 == side2 and side1 == side3 do
-    :equilateral
+    {:ok, :equilateral}
   end
 
   def classify(side1, side2, side3) when side1 == side2 or side1 == side3 or side2 == side3 do
-    :isosceles
+    {:ok, :isosceles}
   end
 
   def classify(_side1, _side2, _side3) do
-    :scalene
+    {:ok, :scalene}
   end
 end
