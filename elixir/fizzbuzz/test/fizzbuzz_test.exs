@@ -16,5 +16,9 @@ defmodule FizzbuzzTest do
     assert Fizzbuzz.translate(5) == "Buzz"
     assert Fizzbuzz.translate(10) == "Buzz"
   end
+
+  test "multiples of 15 should translate to FizzBuzz" do
+    assert Fizzbuzz.translate(15) == "FizzBuzz"
+  end
 end
 

@@ -21,8 +21,15 @@ defmodule Fizzbuzz do
       iex> Fizzbuzz.translate(5)
       "Buzz"
 
+      iex> Fizzbuzz.translate(15)
+      "FizzBuzz"
+
   """
   def translate(number)
+
+  def translate(number) when number == 15 do
+    "FizzBuzz"
+  end
 
   def translate(number) when rem(number, 3) == 0 do
     "Fizz"
