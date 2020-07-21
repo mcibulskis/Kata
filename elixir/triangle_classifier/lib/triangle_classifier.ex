@@ -19,7 +19,7 @@ defmodule TriangleClassifier do
   """
   def classify(side1, side2, side3)
 
-  def classify(side1, side2, side3) when side1 == side2 do
+  def classify(side1, side2, side3) when side1 == side2 or side1 == side3 or side2 == side3 do
     :isosceles
   end
 

@@ -8,5 +8,7 @@ defmodule TriangleClassifierTest do
 
   test "correctly identifies an isosceles triangle when two of the three sides are equal" do
     assert TriangleClassifier.classify(1, 1, 2) == :isosceles
+    assert TriangleClassifier.classify(1, 2, 1) == :isosceles
+    assert TriangleClassifier.classify(2, 1, 1) == :isosceles
   end
 end
