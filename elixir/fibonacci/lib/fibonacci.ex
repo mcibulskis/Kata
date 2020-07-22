@@ -29,6 +29,7 @@ defmodule Fibonacci do
   end
 
   defp next_fib([prev1, prev2]) do
-    {[prev1 + prev2], [prev2, prev1 + prev2]}
+    next = prev1 + prev2
+    {[next], [prev2, next]}
   end
 end
