@@ -6,7 +6,7 @@ defmodule Cell do
   defstruct state: :dead, living_neighbors: 0
 
   @doc """
-  Determines whether this cell will be alive or dead for the next generation.
+  Generates the cell state representation for the cell for the next generation.
 
   1. Any live cell with two or three live neighbors survives in the next generation
   2. Any dead cell with three live neighbors becomes a live cell in the next generation
@@ -15,21 +15,21 @@ defmodule Cell do
 
   ## Examples
 
-      iex> Cell.will_be_alive?(%Cell{state: :alive, living_neighbors: 1})
-      false
+      iex> Cell.next(%Cell{state: :alive, living_neighbors: 1})
+      %Cell{state: :dead}
 
-      iex> Cell.will_be_alive?(%Cell{state: :alive, living_neighbors: 5})
-      false
+      iex> Cell.next(%Cell{state: :alive, living_neighbors: 5})
+      %Cell{state: :dead}
 
-      iex> Cell.will_be_alive?(%Cell{state: :alive, living_neighbors: 2})
-      true
+      iex> Cell.next(%Cell{state: :alive, living_neighbors: 2})
+      %Cell{state: :alive}
 
-      iex> Cell.will_be_alive?(%Cell{state: :dead, living_neighbors: 3})
-      true
+      iex> Cell.next(%Cell{state: :dead, living_neighbors: 3})
+      %Cell{state: :alive}
 
   """
-  def will_be_alive?(%Cell{living_neighbors: 2, state: :alive}), do: true
-  def will_be_alive?(%Cell{living_neighbors: 3, state: :alive}), do: true
-  def will_be_alive?(%Cell{living_neighbors: 3, state: :dead}), do: true
-  def will_be_alive?(_cell), do: false
+  def next(%Cell{living_neighbors: 2, state: :alive}), do: %Cell{state: :alive}
+  def next(%Cell{living_neighbors: 3, state: :alive}), do: %Cell{state: :alive}
+  def next(%Cell{living_neighbors: 3, state: :dead}), do: %Cell{state: :alive}
+  def next(_cell), do: %Cell{}
 end
