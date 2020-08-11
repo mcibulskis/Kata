@@ -24,15 +24,13 @@ defmodule Cell do
       iex> Cell.will_be_alive?(%Cell{state: :alive, living_neighbors: 2})
       true
 
-    #  iex> Cell.will_be_alive?(%Cell{state: :dead, living_neighbors: 3})
-    #  true
+      iex> Cell.will_be_alive?(%Cell{state: :dead, living_neighbors: 3})
+      true
 
   """
-  def will_be_alive?(%Cell{living_neighbors: num_alive}) when num_alive < 2 or num_alive > 3 do
-    false
-  end
+  def will_be_alive?(%Cell{living_neighbors: 2, state: :alive}), do: true
+  def will_be_alive?(%Cell{living_neighbors: 3, state: :alive}), do: true
+  def will_be_alive?(%Cell{living_neighbors: 3, state: :dead}), do: true
+  def will_be_alive?(_cell), do: false
 
-  def will_be_alive?(%Cell{living_neighbors: num_alive, state: :alive}) when num_alive == 2 or num_alive == 3 do
-    true
-  end
 end
