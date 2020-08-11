@@ -7,3 +7,8 @@ Straight-forward approach to a flat, rectangular grid for Conway's Game of Life.
 3. Any other live cell dies in the next generation
 4. Any other dead cell remains dead in the next generation
 
+TODO: grid creation
+TODO: generation calculation
+TODO: querying of neighbors' current state
+TODO: display current generation grid
+TODO: iterating through generations
