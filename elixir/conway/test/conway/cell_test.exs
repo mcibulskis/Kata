@@ -35,4 +35,3 @@ defmodule CellTest do
     assert Cell.will_be_alive?(%Cell{living_neighbors: 8, state: :dead}) == false
   end
 end
-

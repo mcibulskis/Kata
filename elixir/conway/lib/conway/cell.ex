@@ -3,7 +3,7 @@ defmodule Cell do
   Represents a cell within the "world".
   """
 
-  defstruct [state: :dead, living_neighbors: 0]
+  defstruct state: :dead, living_neighbors: 0
 
   @doc """
   Determines whether this cell will be alive or dead for the next generation.
@@ -32,5 +32,4 @@ defmodule Cell do
   def will_be_alive?(%Cell{living_neighbors: 3, state: :alive}), do: true
   def will_be_alive?(%Cell{living_neighbors: 3, state: :dead}), do: true
   def will_be_alive?(_cell), do: false
-
 end
