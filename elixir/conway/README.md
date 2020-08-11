@@ -1,21 +1,9 @@
 # Conway
 
-**TODO: Add description**
+Straight-forward approach to a flat, rectangular grid for Conway's Game of Life.
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `conway` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:conway, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/conway](https://hexdocs.pm/conway).
+1. Any live cell with two or three live neighbors survives in the next generation
+2. Any dead cell with three live neighbors becomes a live cell in the next generation
+3. Any other live cell dies in the next generation
+4. Any other dead cell remains dead in the next generation
 

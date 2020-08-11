@@ -1,26 +1,25 @@
-defmodule Conway do
+defmodule Cell do
   @moduledoc """
-  Conway's Game of Life
+  Represents a cell within the "world".
+  """
 
-  Assumes a rectangular grid.  Each cell has 8 neighbors (4 cardinal directions and 4 diagonals).
+  defstruct [state: :dead, living_neighbors: 0]
+
+  @doc """
+  Determines whether this cell will be alive or dead for the next generation.
 
   1. Any live cell with two or three live neighbors survives in the next generation
   2. Any dead cell with three live neighbors becomes a live cell in the next generation
   3. Any other live cell dies in the next generation
   4. Any other dead cell remains dead in the next generation
 
-  """
-
-  @doc """
-  Hello world.
-
   ## Examples
 
-      iex> Conway.hello()
-      :world
+      iex> Cell.will_be_alive?()
+      false
 
   """
-  def hello do
-    :world
+  def will_be_alive? do
+    false
   end
 end
