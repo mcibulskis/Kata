@@ -32,7 +32,7 @@ defmodule Grid do
 
   defp build_cell_map(rows, cols) do
     build_grid_coordinates(rows, cols)
-    |> Enum.reduce(%{}, &(Map.put(&2, &1, %Cell{})))
+    |> Enum.reduce(%{}, &Map.put(&2, &1, %Cell{}))
   end
 
   defp build_grid_coordinates(rows, cols) do
