@@ -23,6 +23,15 @@ defmodule GridTest do
   end
 
   test "interior coordinate has fully surrounding neighbors" do
-    assert Grid.neighbors_of({3, 2}) == [{2, 1}, {2, 2}, {2, 3}, {3, 1}, {3, 3}, {4, 1}, {4, 2}, {4, 3}]
+    assert Grid.neighbors_of({3, 2}) == [
+             {2, 1},
+             {2, 2},
+             {2, 3},
+             {3, 1},
+             {3, 3},
+             {4, 1},
+             {4, 2},
+             {4, 3}
+           ]
   end
 end

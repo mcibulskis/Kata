@@ -1,7 +1,7 @@
 defmodule Grid do
   @moduledoc """
   Represents the grid space within which cells reside.
-  
+
   Edges of the grid are "hard" and do not wrap, which means
   that coordinates on the edge of the grid have fewer neighbors
   than coordinates in the interior of the grid.
@@ -60,7 +60,7 @@ defmodule Grid do
   def neighbors_of({row, col}) do
     for n_row <- (row - 1)..(row + 1),
         n_col <- (col - 1)..(col + 1),
-        (n_row != row) or (n_col != col) do
+        n_row != row or n_col != col do
       {n_row, n_col}
     end
   end
