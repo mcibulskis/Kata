@@ -64,7 +64,7 @@ defmodule Grid do
   def neighbors_of({row, col}, %Grid{rows: rows, cols: cols}) do
     for n_row <- bounded(row - 1, rows)..bounded(row + 1, rows),
         n_col <- bounded(col - 1, cols)..bounded(col + 1, cols),
-        n_row != row or n_col != col do
+        {n_row, n_col} != {row, col} do
       {n_row, n_col}
     end
   end
