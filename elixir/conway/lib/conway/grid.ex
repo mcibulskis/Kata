@@ -1,6 +1,10 @@
 defmodule Grid do
   @moduledoc """
   Represents the grid space within which cells reside.
+  
+  Edges of the grid are "hard" and do not wrap, which means
+  that coordinates on the edge of the grid have fewer neighbors
+  than coordinates in the interior of the grid.
   """
 
   @enforce_keys [:rows, :cols]
@@ -38,6 +42,26 @@ defmodule Grid do
   defp build_grid_coordinates(rows, cols) do
     for row <- 1..rows, col <- 1..cols do
       {row, col}
+    end
+  end
+
+  @doc """
+  Returns a list of tuples denoting the coordinates of the neighbors of the
+  specified coordinate.
+
+  ## Examples
+
+      iex> Grid.neighbors_of({2, 2})
+      [{1, 1}, {1, 2}, {1, 3},
+       {2, 1},         {2, 3},
+       {3, 1}, {3, 2}, {3, 3}]
+
+  """
+  def neighbors_of({row, col}) do
+    for n_row <- (row - 1)..(row + 1),
+        n_col <- (col - 1)..(col + 1),
+        (n_row != row) or (n_col != col) do
+      {n_row, n_col}
     end
   end
 end
