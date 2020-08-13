@@ -23,7 +23,7 @@ defmodule GridTest do
   end
 
   test "interior coordinate has fully surrounding neighbors" do
-    assert Grid.neighbors_of({3, 2}) == [
+    assert Grid.neighbors_of({3, 2}, Grid.new(4, 4)) == [
              {2, 1},
              {2, 2},
              {2, 3},
@@ -32,6 +32,66 @@ defmodule GridTest do
              {4, 1},
              {4, 2},
              {4, 3}
+           ]
+  end
+
+  test "edge coordinates do not have neighbors outside of the grid" do
+    assert Grid.neighbors_of({2, 1}, Grid.new(3, 3)) == [
+             {1, 1},
+             {1, 2},
+             {2, 2},
+             {3, 1},
+             {3, 2}
+           ]
+
+    assert Grid.neighbors_of({1, 2}, Grid.new(3, 3)) == [
+             {1, 1},
+             {1, 3},
+             {2, 1},
+             {2, 2},
+             {2, 3}
+           ]
+
+    assert Grid.neighbors_of({2, 3}, Grid.new(3, 3)) == [
+             {1, 2},
+             {1, 3},
+             {2, 2},
+             {3, 2},
+             {3, 3}
+           ]
+
+    assert Grid.neighbors_of({3, 2}, Grid.new(3, 3)) == [
+             {2, 1},
+             {2, 2},
+             {2, 3},
+             {3, 1},
+             {3, 3}
+           ]
+  end
+
+  test "corner coordinates do not have neighbors outside of the grid" do
+    assert Grid.neighbors_of({1, 1}, Grid.new(3, 4)) == [
+             {1, 2},
+             {2, 1},
+             {2, 2}
+           ]
+
+    assert Grid.neighbors_of({1, 4}, Grid.new(3, 4)) == [
+             {1, 3},
+             {2, 3},
+             {2, 4}
+           ]
+
+    assert Grid.neighbors_of({3, 4}, Grid.new(3, 4)) == [
+             {2, 3},
+             {2, 4},
+             {3, 3}
+           ]
+
+    assert Grid.neighbors_of({3, 1}, Grid.new(3, 4)) == [
+             {2, 1},
+             {2, 2},
+             {3, 2}
            ]
   end
 end

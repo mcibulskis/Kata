@@ -51,17 +51,25 @@ defmodule Grid do
 
   ## Examples
 
-      iex> Grid.neighbors_of({2, 2})
+      iex> Grid.neighbors_of({2, 2}, Grid.new(3, 3))
       [{1, 1}, {1, 2}, {1, 3},
        {2, 1},         {2, 3},
        {3, 1}, {3, 2}, {3, 3}]
 
+      iex> Grid.neighbors_of({1, 1}, Grid.new(3, 3))
+      [        {1, 2},
+       {2, 1}, {2, 2}]
+
   """
-  def neighbors_of({row, col}) do
-    for n_row <- (row - 1)..(row + 1),
-        n_col <- (col - 1)..(col + 1),
+  def neighbors_of({row, col}, %Grid{rows: rows, cols: cols}) do
+    for n_row <- bounded(row - 1, rows)..bounded(row + 1, rows),
+        n_col <- bounded(col - 1, cols)..bounded(col + 1, cols),
         n_row != row or n_col != col do
       {n_row, n_col}
     end
   end
+
+  defp bounded(target, _max) when target < 1, do: 1
+  defp bounded(target, max) when target > max, do: max
+  defp bounded(target, _max), do: target
 end
