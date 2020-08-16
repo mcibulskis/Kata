@@ -43,4 +43,11 @@ defmodule CellTest do
     assert %Cell{living_neighbors: 0} = Cell.next(%Cell{living_neighbors: 1, state: :dead})
     assert %Cell{living_neighbors: 0} = Cell.next(%Cell{living_neighbors: 7, state: :dead})
   end
+
+  test "visually represent the cells in an abbreviated format based solely on current state" do
+    assert "." == Cell.to_string(%Cell{living_neighbors: 0, state: :dead})
+    assert "." == Cell.to_string(%Cell{living_neighbors: 3, state: :dead})
+    assert "o" == Cell.to_string(%Cell{living_neighbors: 0, state: :alive})
+    assert "o" == Cell.to_string(%Cell{living_neighbors: 2, state: :alive})
+  end
 end

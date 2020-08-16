@@ -72,4 +72,34 @@ defmodule Grid do
   defp bounded(target, _max) when target < 1, do: 1
   defp bounded(target, max) when target > max, do: max
   defp bounded(target, _max), do: target
+
+  @doc """
+  Converts the grid to a list of lists of strings, representing the live/dead
+  state of the cells.
+
+  ## Examples
+
+      iex> Grid.to_visual(Grid.new(3,3))
+      [[".", ".", "."], [".", ".", "."], [".", ".", "."]]
+
+      iex> Grid.to_visual(%Grid{rows: 2, cols: 2, cells: %{
+      ...>   {1, 1} => %Cell{state: :dead},
+      ...>   {1, 2} => %Cell{state: :alive},
+      ...>   {2, 1} => %Cell{state: :alive},
+      ...>   {2, 2} => %Cell{state: :dead}
+      ...> }})
+      [[".", "o"], ["o", "."]]
+
+  """
+  def to_visual(grid) do
+    for row <- 1..grid.rows do
+      row_to_visual(grid, row)
+    end
+  end
+
+  defp row_to_visual(grid, row) do
+    for col <- 1..grid.cols do
+      Cell.to_string(grid.cells[{row, col}])
+    end
+  end
 end

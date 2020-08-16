@@ -32,4 +32,19 @@ defmodule Cell do
   def next(%Cell{living_neighbors: 3, state: :alive}), do: %Cell{state: :alive}
   def next(%Cell{living_neighbors: 3, state: :dead}), do: %Cell{state: :alive}
   def next(_cell), do: %Cell{}
+
+  @doc """
+  Returns a visual string representing whether the cell is alive or dead
+
+  ## Examples
+
+      iex> Cell.to_string(%Cell{state: :alive, living_neighbors: 5})
+      "o"
+
+      iex> Cell.to_string(%Cell{state: :dead, living_neighbors: 3})
+      "."
+
+  """
+  def to_string(%Cell{state: :alive, living_neighbors: _living_neighbors}), do: "o"
+  def to_string(%Cell{state: :dead, living_neighbors: _living_neighbors}), do: "."
 end
