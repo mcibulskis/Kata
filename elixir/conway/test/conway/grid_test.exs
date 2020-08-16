@@ -96,13 +96,17 @@ defmodule GridTest do
   end
 
   test "grid visuals provide a compressed representation of the state of the grid" do
-    assert Grid.to_visual(%Grid{rows: 2, cols: 3, cells: %{
-             {1, 1} => %Cell{state: :alive},
-             {1, 2} => %Cell{state: :alive},
-             {1, 3} => %Cell{state: :dead},
-             {2, 1} => %Cell{state: :alive},
-             {2, 2} => %Cell{state: :dead},
-             {2, 3} => %Cell{state: :alive}
-           }}) == [["o", "o", "."], ["o", ".", "o"]]
+    assert Grid.to_visual(%Grid{
+             rows: 2,
+             cols: 3,
+             cells: %{
+               {1, 1} => %Cell{state: :alive},
+               {1, 2} => %Cell{state: :alive},
+               {1, 3} => %Cell{state: :dead},
+               {2, 1} => %Cell{state: :alive},
+               {2, 2} => %Cell{state: :dead},
+               {2, 3} => %Cell{state: :alive}
+             }
+           }) == [["o", "o", "."], ["o", ".", "o"]]
   end
 end
