@@ -102,4 +102,14 @@ defmodule Grid do
       Cell.to_string(grid.cells[{row, col}])
     end
   end
+
+  @doc """
+  Prints the current state of the grid to stdout
+  """
+  def puts(grid) do
+    to_visual(grid)
+    |> Enum.map(&Enum.join(&1))
+    |> Enum.join("\n")
+    |> IO.puts()
+  end
 end
